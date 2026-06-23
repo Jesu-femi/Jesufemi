@@ -120,7 +120,6 @@ main {
 	padding-block: 1rem;
 	top: 0;
 	left: 0;
-	/* inset-block:; */
 	background-color: var(--body-color);
 	z-index: var(--z-fixed);
 	transition: box-shadow 0.4s;
@@ -157,11 +156,9 @@ main {
 @media screen and (max-width: 1150px) {
 	.nav-menu {
 		position: fixed;
-		/* top: 0; */
 		top: -120%;
 		left: 0;
 		width: 100%;
-		/* inset: 0; */
 		background-color: var(--body-color);
 		box-sizing: 0 8px 16px hsla(0, 0%, 0%, 0.5);
 		padding-block: 5rem 4rem;
@@ -470,6 +467,7 @@ main {
 .resume-info address {
 	font-style: initial;
 }
+
 /* ============== CONTACT =============== */
 .contact-container {
 	row-gap: 4rem;
@@ -495,7 +493,7 @@ main {
 .contact-input:focus::placeholder {
 	color: var(--first-color);
 }
-.contact-input:autofill {
+.contact-input::autofill {
 	transition:
 		background-color 6000s,
 		color 6000s;
@@ -547,6 +545,7 @@ main {
 	transform: translateY(-0.25rem);
 	color: var(--first-color);
 }
+
 /* ============== FOOOTER =============== */
 .footer {
 	padding-block: 5rem 2rem;
@@ -598,6 +597,7 @@ main {
 	font-size: var(--small-font-size);
 	color: var(--gary-color);
 }
+
 /* ============== BREAK POINTS =============== */
 
 /* FOR SMALLER DEVICES  */
