@@ -15,7 +15,7 @@
 	--gary-color: hsl(var(--hue), 4%, 50%);
 	--body-color: hsl(var(--hue), 8%, 8%);
 	--container-color: hsl(var(--hue), 8%, 8+12%);
-	
+
 	/* ============= FONTS AND TYPOGRAOHY ============= */
 	/* 1rem = 16px */
 	--body-font: "unbounded", sans-serif;
@@ -211,6 +211,9 @@ main {
 	box-shadow: hsla(0, 0%, 0%, 0.5);
 }
 /* Active link */
+.active-link::after {
+	width: 60%;
+}
 
 /* ============== HOME =============== */
 .home-container {
@@ -519,11 +522,11 @@ main {
 	column-gap: 1rem;
 	font-style: initial;
 }
-.contact-address span a{
+.contact-address span a {
 	color: var(--white-color);
-	transition: color .3s ease;
+	transition: color 0.3s ease;
 }
-.contact-address span a:hover{
+.contact-address span a:hover {
 	color: var(--first-color);
 }
 .contact-address i {
@@ -597,6 +600,45 @@ main {
 	font-size: var(--small-font-size);
 	color: var(--gary-color);
 }
+
+/* ============== Scroll Bar =============== */
+::-webkit-scrollbar {
+	width: 0.6rem;
+	background-color: hsl(0, 0%, 15%);
+	border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+	background-color: hsl(0, 0%, 25%);
+	border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: hsl(0, 0%, 35%);
+}
+/* ============== Scroll Up =============== */
+.scrollup {
+	position: fixed;
+	right: 1rem;
+	bottom: -50%;
+	background-color: var(--body-color);
+	box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.5);
+	display: inline-flex;
+	padding: 6px;
+	color: var(--white-color);
+	font-size: 1.25rem;
+	border-radius: 0.25rem;
+	z-index: var(--z-tooltip);
+	transition:
+		bottom 0.4s,
+		transform 0.4s;
+}
+.scrollup:hover {
+	transform: translateY(-0.5rem);
+}
+/*  Shoe scroll  */
+.show-scroll {
+	bottom: 3rem;
+}
+/* ======== Scroll Section Action Link ======== */
 
 /* ============== BREAK POINTS =============== */
 
@@ -779,16 +821,25 @@ main {
 		grid-template-columns: repeat(3, 1fr);
 		align-items: center;
 	}
-	.footer-logo{
+	.footer-logo {
 		font-size: var(--h2-font-size);
 		justify-self: flex-start;
 		margin-bottom: 0;
 	}
-	.footer-links{
+	.footer-links {
 		column-gap: 3rem;
 	}
-	.footer-social{
+	.footer-social {
 		justify-self: flex-end;
+	}
+
+	.scrollup {
+		right: 3rem;
 	}
 }
 /* FOR 2K RESOLUTION (2048 * 1152,  2048 * 1536  */
+@media screen and (min-width: 2048px) {
+	body {
+		zoom: 1.2;
+	}
+}
