@@ -48,7 +48,7 @@ const contactForm = document.getElementById("contact-form"),
 const sendEmail = (e) => {
 	e.prventDefault();
 	/* ServiceID - TemplateID - #form - PublicKey */
-	emailjs.sendForm("", "", "").then(
+	emailjs.sendForm("", "template_ut6ut0n", "P-3zOm6duwbZU33Ti").then(
 		() => {
 			contactmessage.textContent = "Message sent successfully";
 
@@ -85,7 +85,9 @@ const scrollActive = () => {
 		const sectionHeight = current.offsetHeight,
 			sectionTop = current.offsetTop - 58,
 			sectionId = current.getAttribute("id"),
-			sectionClass = document.querySelector(".nav-menu a[href*='+ sectionId +']");
+			sectionClass = document.querySelector(
+				".nav-menu a[href*='+ sectionId +']",
+			);
 
 		if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
 			sectionClass.classList.add("active-link");
@@ -96,3 +98,20 @@ const scrollActive = () => {
 };
 
 window.addEventListener("scroll", scrollActive);
+
+/*============== Scroll reveai animation ========== */
+
+const sr = scrollReveal({
+	original: "Top",
+	distance: "60px",
+	duration: 2000,
+	// reset: true,
+});
+sr.reveal(".home-content, .resume-content:nth-child(1), .footer-container");
+sr.reveal(".home-data, .resume-content:nth-child(2)", {
+	delay: 300,
+	origin: "bottom",
+});
+sr.reveal(".about-content, .contact-content", { origin: "bottom" });
+sr.reveal(".about-img, .contact-form", { delay: 300 });
+sr.reveal(".ptoject-card", { interval: 100 });

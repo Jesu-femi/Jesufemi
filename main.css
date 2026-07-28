@@ -668,6 +668,9 @@ main {
 		padding-block: 0.3rem;
 		/* margin-block: 1rem; */
 	}
+	.home-container {
+		margin-top: 3rem;
+	}
 	.home-container,
 	.about-container,
 	.project-container,
