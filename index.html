@@ -83,8 +83,16 @@
 					<div class="about-content">
 						<div class="about-data">
 							<h2 class="section-title">About Me</h2>
-							<p class="about-description">
-								I build fast and smooth websites for businesses
+							<p 
+							class="about-description">
+								I'm a frontend developer based in Lagos, Nigeria, with a
+								background in Computer Science Education. I build clean, fast,
+								mobile-first websites. Sara-Clothing and Groco below are
+								examples, and I'm currently deepening my React skills through
+								hands-on project work. I also work with workflow automation
+								tools like n8n and Zapier, and bring hands-on IT support
+								experience to technical problem-solving. I'm open to frontend
+								development and freelance opportunities
 							</p>
 							<a href="#contact" class="button button-ghost">Contact Me</a>
 						</div>
@@ -115,7 +123,7 @@
 					<article class="project-card">
 						<img src="images/sara img.png" alt="image" class="project-img" />
 						<div class="project-data">
-							<h3 class="projrct-title">Sara-Clothing</h3>
+							<h3 class="project-title">Sara-Clothing</h3>
 							<p class="project-description">
 								Africa fashion store. mobile first website for browsing styles.
 							</p>
@@ -128,66 +136,10 @@
 					<article class="project-card">
 						<img src="images/groco-img.png" alt="image" class="project-img" />
 						<div class="project-data">
-							<h3 class="projrct-title">Groco Grocery</h3>
+							<h3 class="project-title">Groco Grocery</h3>
 							<p class="project-description">
 								Online grocery site for diffrent dishes and foods items. Fast
 								loading, clean UI
-							</p>
-							<a href="#" target="_blank" class="button button-ghost"
-								>View Project</a
-							>
-						</div>
-					</article>
-
-					<article class="project-card">
-						<img src="images/default-img.jpg" alt="image" class="project-img" />
-						<div class="project-data">
-							<h3 class="projrct-title">Real Estate Website</h3>
-							<p class="project-description">
-								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse,
-								pariatur.
-							</p>
-							<a href="#" target="_blank" class="button button-ghost"
-								>View Project</a
-							>
-						</div>
-					</article>
-
-					<article class="project-card">
-						<img src="images/default-img.jpg" alt="image" class="project-img" />
-						<div class="project-data">
-							<h3 class="projrct-title">Business Design</h3>
-							<p class="project-description">
-								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse,
-								pariatur.
-							</p>
-							<a href="#" target="_blank" class="button button-ghost"
-								>View Project</a
-							>
-						</div>
-					</article>
-
-					<article class="project-card">
-						<img src="images/default-img.jpg" alt="image" class="project-img" />
-						<div class="project-data">
-							<h3 class="projrct-title">FinTech website</h3>
-							<p class="project-description">
-								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse,
-								pariatur.
-							</p>
-							<a href="#" target="_blank" class="button button-ghost"
-								>View Project</a
-							>
-						</div>
-					</article>
-
-					<article class="project-card">
-						<img src="images/default-img.jpg" alt="image" class="project-img" />
-						<div class="project-data">
-							<h3 class="projrct-title">AI website Design</h3>
-							<p class="project-description">
-								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse,
-								pariatur.
 							</p>
 							<a href="#" target="_blank" class="button button-ghost"
 								>View Project</a
@@ -276,21 +228,24 @@
 							name="user_message"
 							placeholder="Message"
 							required
-							id=""
 							class="contact-input contact-area"></textarea>
 						<button type="submit" class="button">Send Message</button>
 						<p class="contact-message" id="contact-message"></p>
 					</form>
-					<div class="contact-comtent grid">
+					<div class="contact-content grid">
 						<div class="contact-data grid">
 							<address class="contact-address">
 								<i class="ri-mail-fill"></i>
-								<span><a href="mailto:">jesufemifatona@gmail.com</a></span>
+								<span
+									><a href="mailto:jesufemifatona@gmail.com"
+										>jesufemifatona@gmail.com</a
+									></span
+								>
 							</address>
 
 							<address class="contact-address">
 								<i class="ri-smartphone-fill"></i>
-								<span><a href="+2347061421232">+234-706-142-1232</a></span>
+								<span><a href="tel:+2347061421232">+234-706-142-1232</a></span>
 							</address>
 
 							<address class="contact-address">
@@ -301,8 +256,8 @@
 							<address class="contact-address">
 								<i class="ri-time-fill"></i>
 								<span
-									><a href="http://"
-										>Avaliable on Whatsapp MON-FRI, 9AM - 6PM</a
+									><a href="https://wa.me/2347061421232"
+										>Available on WhatsApp MON-FRI, 9AM - 6PM</a
 									></span
 								>
 							</address>
@@ -326,7 +281,7 @@
 			<!-- ============ FOOTER ============ -->
 			<footer class="footer">
 				<div class="footer-container container grid">
-					<a href="" class="footer-logo">FEMI</a>
+					<a href="#home" class="footer-logo">FEMI</a>
 					<div class="footer-links">
 						<a href="#home" class="footer-link">Home</a>
 						<a href="#about" class="footer-link">About</a>
@@ -355,7 +310,10 @@
 		<!-- ========= SCROLL REVIEAL  ======== -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
 		<!-- ========= EMAIL JS  ======== -->
-		<script src=""></script>
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		<script>
+			emailjs.init({ publicKey: "P-3zOm6duwbZU33Ti" });
+		</script>
 		<!-- ========= hOME TYPED CDNJS  ======== -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.min.js"></script>
 		<!-- ========= MAIN SCRIPT ======== -->

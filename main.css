@@ -160,7 +160,7 @@ main {
 		left: 0;
 		width: 100%;
 		background-color: var(--body-color);
-		box-sizing: 0 8px 16px hsla(0, 0%, 0%, 0.5);
+		box-shadow: 0 8px 16px hsla(0, 0%, 0%, 0.5);
 		padding-block: 5rem 4rem;
 		border-radius: 0 0 1.5rem 1.5rem;
 		transition: top 0.4s;
@@ -250,7 +250,6 @@ main {
 	/* left: -2.5rem; */
 	left: -0.1rem;
 	bottom: 0;
-	padding-inline: -2rem;
 	display: grid;
 	align-content: center;
 	row-gap: 1.5rem;
@@ -353,7 +352,7 @@ main {
 	transition:
 		background-color 0.4s,
 		color 0.4s,
-		border-colo 0.4s;
+		border-color 0.4s;
 }
 .about-item:hover {
 	background-color: var(--body-color);
@@ -491,7 +490,7 @@ main {
 }
 .contact-input::placeholder {
 	color: var(--gary-color);
-	transition: color 0.4;
+	transition: color 0.4s;
 }
 .contact-input:focus::placeholder {
 	color: var(--first-color);
@@ -707,7 +706,7 @@ main {
 	.contact-container {
 		grid-template-columns: repeat(2, 350px);
 	}
-	.contact-conent {
+	.contact-content {
 		align-items: flex-start;
 	}
 	.contact-form {
@@ -781,7 +780,8 @@ main {
 		padding-block: 8rem 4rem;
 	}
 	.project-container {
-		grid-template-columns: repeat(3, 400px);
+		grid-template-columns: repeat(2, 400px);
+		justify-content: center;
 		gap: 3rem 2rem;
 	}
 	.project-data .button {

@@ -25,18 +25,18 @@ const linkAction = () => {
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
 /*============== HOME TYPED JS ========== */
-const typedHome = new typeed("#home-typed", {
-	String: ["Web Developer", "Freelancer", "Designer"],
+const typedHome = new Typed("#home-typed", {
+	strings: ["Web Developer", "Freelancer", "Designer"],
 	typeSpeed: 80,
 	backSpeed: 40,
 	backDelay: 2000,
 	loop: true,
-	cursurCharater: "_",
+	cursorChar: "_",
 });
 /*============== ADD SHADOW TO THE HEADER ========== */
 const shadowHeader = () => {
 	const header = document.getElementById("header");
-	this.scrollY >= 50
+	window.scrollY >= 50
 		? header.classList.add("shadowHeader")
 		: header.classList.remove("shadowHeader");
 };
@@ -44,38 +44,52 @@ window.addEventListener("scroll", shadowHeader);
 
 /*============== CONTACT EMAIL JS ========== */
 const contactForm = document.getElementById("contact-form"),
-	contactmessage = document.getElementById("contact-message");
-const sendEmail = (e) => {
-	e.prventDefault();
-	/* ServiceID - TemplateID - #form - PublicKey */
-	emailjs.sendForm("", "template_ut6ut0n", "P-3zOm6duwbZU33Ti").then(
-		() => {
-			contactmessage.textContent = "Message sent successfully";
+	contactMessage = document.getElementById("contact-message");
 
-			setTimeout(() => {
-				contactmessage.textContent = "";
-			}, 5000);
+if (contactForm) {
+	const sendEmail = (e) => {
+		e.preventDefault();
 
-			contactForm.reset();
-		},
-		() => {
-			// Error message
-			contactmessage.textContent = "Message NOT sent (Serbice error)";
-		},
-	);
-};
-contactForm.addEventListener("submit", sendEmail);
+		const submitBtn = contactForm.querySelector("button[type='submit']");
+		const originalBtnText = submitBtn.textContent;
+		submitBtn.disabled = true;
+		submitBtn.textContent = "Sending...";
+		contactMessage.textContent = "";
+
+		/* serviceID - templateID - form reference */
+		/* Public key is set once globally via emailjs.init() in index.html */
+		emailjs.sendForm("YOUR_SERVICE_ID", "template_ut6ut0n", contactForm).then(
+			() => {
+				contactMessage.textContent = "Message sent successfully";
+				contactForm.reset();
+
+				setTimeout(() => {
+					contactMessage.textContent = "";
+				}, 5000);
+			},
+			(error) => {
+				// Error message
+				console.error("EmailJS error:", error);
+				contactMessage.textContent = "Message NOT sent (service error). Please try again or email me directly.";
+			},
+		).finally(() => {
+			submitBtn.disabled = false;
+			submitBtn.textContent = originalBtnText;
+		});
+	};
+	contactForm.addEventListener("submit", sendEmail);
+}
 
 /*============== Show Scroll UP ========== */
-const scrollUp = () => {
-	const scrollUp = document.getElementById("scroll-up");
-	this.scrollY >= 350
-		? scrollUp.classList.add("show-scroll")
-		: scrollUp.classList.remove("show-scroll");
+const scrollUpBtn = document.getElementById("scroll-up");
+const toggleScrollUp = () => {
+	window.scrollY >= 350
+		? scrollUpBtn.classList.add("show-scroll")
+		: scrollUpBtn.classList.remove("show-scroll");
 };
-window.addEventListener("scroll", scrollUp);
+window.addEventListener("scroll", toggleScrollUp);
 
-/*============== Scroll Sectoin Action Link========== */
+/*============== Scroll Section Action Link ========== */
 const sections = document.querySelectorAll("section[id]");
 
 const scrollActive = () => {
@@ -86,8 +100,10 @@ const scrollActive = () => {
 			sectionTop = current.offsetTop - 58,
 			sectionId = current.getAttribute("id"),
 			sectionClass = document.querySelector(
-				".nav-menu a[href*='+ sectionId +']",
+				`.nav-menu a[href*="${sectionId}"]`,
 			);
+
+		if (!sectionClass) return;
 
 		if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
 			sectionClass.classList.add("active-link");
@@ -99,10 +115,10 @@ const scrollActive = () => {
 
 window.addEventListener("scroll", scrollActive);
 
-/*============== Scroll reveai animation ========== */
+/*============== Scroll reveal animation ========== */
 
-const sr = scrollReveal({
-	original: "Top",
+const sr = ScrollReveal({
+	origin: "top",
 	distance: "60px",
 	duration: 2000,
 	// reset: true,
@@ -114,4 +130,4 @@ sr.reveal(".home-data, .resume-content:nth-child(2)", {
 });
 sr.reveal(".about-content, .contact-content", { origin: "bottom" });
 sr.reveal(".about-img, .contact-form", { delay: 300 });
-sr.reveal(".ptoject-card", { interval: 100 });
+sr.reveal(".project-card", { interval: 100 });
