@@ -26,7 +26,7 @@ navLink.forEach((n) => n.addEventListener("click", linkAction));
 
 /*============== HOME TYPED JS ========== */
 const typedHome = new Typed("#home-typed", {
-	strings: ["Web Developer", "Freelancer", "Designer"],
+	strings: ["Front-end Developer", "Freelancer", "Web Designer"],
 	typeSpeed: 80,
 	backSpeed: 40,
 	backDelay: 2000,
